@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>covid19 ePass portal About Us</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script th:src="@{/JS/security.js}"></script>
+    <link rel="stylesheet" th:href="@{/CSS/aboutcss.css}">
+</head>
+<!--body-->
+<body oncontextmenu="return false;">
+<!--Header-->
+</div>
+<div id="header"class="header navbar navbar-expand-md navbar-light"><div id="logo">
+    <a href="login"  class="navbar-brand logo float-left" style=" outline: none; font-size: 25px; text-shadow: 3px;"><div style="background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"> covid19 ePass portal</div></a></div>
+    <button style="outline: none; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarId">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarId" align="center">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a style="outline: none;background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" href="login" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a style="outline: none;" id="active"  href="about" class="active nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a style="outline: none;background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" href="support" class="nav-link">Support</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="img" >
+    <img th:src="@{/image/k.svg}" width="42%" >
+</div>
+<div class="container" >
+    <div class="content"  >
+        <h4 style="font-family:sans-serif; margin-left: 130px;"> Who Can Apply For This ePass ?</h4>
+        <h5 style="font-family:sans-serif;"> Who Can Apply For This ePass ?</h5>
+        <div class="change">
+            <ul style="text-align: left; ">
+                <li>Individuals can apply for marriage,</li>
+                <li>Medical emergency,</li>
+                <li>Close relative's death,</li>
+                <li>Govt. Tender bidding,</li>
+                <li>Ongoing Govt. work or if stranded only.</li>
+            </ul>
+        </div>
+        <h4 style="text-align: left; font-family: sans-serif; margin-left: 130px;">Who Can Not Apply For This ePass ? </h4>
+        <h5 style="text-align: left; font-family: sans-serif;">Who Can Not Apply For This ePass ? </h5>
+        <div class="change">
+            <ul style="text-align: left; ">
+                <li>Agriculture,</li>
+                <li>Animal husbandry,</li>
+                <li>Fisheries ,</li>
+                <li>Movement, loading/unloading Goods ,</li>
+                <li>MSMEs Outside Greater Chennai Police Limits ,</li>
+                <li>Plantations ,</li>
+                <li>Supply of Essential Goods.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div id="footer">
+    <footer class="page-footer font-small text-muted" style="font-size: 10px;">
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="login"> Covid19 Epass portal</a>
+            <br>
+            Developed and Maintained by <a href="https://www.linkedin.com/in/kandhasamy-ramanathan-bb92801a2" target="_blank">Kandhasamy R</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

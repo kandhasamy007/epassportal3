@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>covid19 ePass portal | user home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script th:src="@{/JS/security.js}"></script>
+    <link rel="stylesheet" th:href="@{/CSS/login.css}">
+</head>
+<!--body-->
+<body oncontextmenu="return false;">
+<!--Header-->
+<div ng-app="nextApp" ng-controller="nextController" >
+    <div ng-show="IsVisible1">
+        <div id="header"class="header navbar navbar-expand-md navbar-light"><div id="logo">
+            <a ng-click="ShowHide()" href="#" class="navbar-brand logo float-left" data-toggle="tooltip" title="Back"  style=" outline: none; font-size: 25px; "><div style="background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"> covid19 ePass portal</div></a></div>
+            <button style="outline: none; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarId">
+                <span style="outline: none; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarId" align="center">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a ng-click="ShowHide1()" style="outline: none; font-size: 18px; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" href="#"  class="nav-link">PREVIOUS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login"  style="outline: none; font-size: 18px; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" class="nav-link" data-toggle="tooltip" title="Logout!"th:text="'Hello! '+${message}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="containerform" >
+            <br>
+            <h3 align="center">Application</h3>
+            <br>
+            <div align="center">
+            <div  th:if="${param.success}" align="center">
+                <div class="alert alert-success alert-dismissible" style="width: 70%;" align="center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong> Your Form Submitted.
+                </div>
+            </div>
+            </div>
+            <br>
+
+            <form action="#" th:action="@{/sendform}" method="post" encType="multipart/form-data">
+                <input type="hidden" name="email" th:value="${email}">
+                <div>
+                    <label style="font-size: 25px; margin-left: 30px;">Individual Pass Basic Details :</label>
+                    <br>
+                    <div class="first">
+                        <p>Reason*</p>
+                        <select class="form-control" name="reason" required>
+                            <option value="Marriage">Marriage</option>
+                            <option value="Medical Emergency">Medical Emergency</option>
+                            <option value="Death">Death</option>
+                            <option value="Work related">Work related</option>
+                        </select>
+                        <br>
+                        <p>Travel Date*</p>
+                        <input class="form-control" type="date" name="date" required>
+                        <br>
+                        <p>Applicant Name*</p>
+                        <input class="form-control" type="text" name="applicant_name" required>
+                        <br>
+                        <p>Gender*</p>
+                        <select class="form-control" name="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                            <option></option>
+                        </select>
+                        <br>
+                        <p>Mother/Father Name*</p>
+                        <input class="form-control" type="text" name="parent_name" required>
+                        <br>
+                        <p>Applicant's Age*</p>
+                        <input class="form-control" type="number" name="age" required>
+                        <br>
+                    </div>
+                    <div class="second">
+                        <p>No. of Passengers Other than Applicant*(Max 10)</p>
+                        <input class="form-control" type="number" name="count" required>
+                        <br>
+                        <p>ID Proof Of Applicant(Any One)*</p>
+                        <select class="form-control" name="id_proof" required>
+                            <option value="Aadhar Card">Aadhar Card</option>
+                            <option value="Ration Card">Ration Card</option>
+                            <option value="PAN Cards">PAN Card</option>
+                            <option value="Driving License">Driving License</option>
+                            <option value="Passport">Passport</option>
+                        </select>
+                        <br>
+                        <p>ID Proof Number*</p>
+                        <input class="form-control" type="number" name="id_proof_num" required>
+                        <br>
+                        <p>Copy of ID Proof*</p>
+                        <input style="margin-left: 90px; outline: none; width:200px" type="file" class="form-control-file"  aria-describedby="fileHelp" name="idproof" required>
+                        <br>
+                        <p>Travel On*</p>
+                        <select class="form-control" name="travel_on" required>
+                            <option value="Bus">Bus (Max 60% of capacity)</option>
+                            <option value="Train">Train (Max 7)</option>
+                            <option value="Bike">Bike (Max 2)</option>
+                            <option value="Car">Car (Max 4) </option>
+                            <option value="Auto">Auto (Max 3)</option>
+                            <option value="Van">Van (Max 6)</option>
+                        </select>
+                        <br>
+                        <p>Travel Distance* (km)</p>
+                        <input class="form-control" type="number" name="travel_distance" required>
+                        <br>
+                        <p>*please ensure your details</p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div STYLE="margin-top: 30px;">
+                    <br>
+                    <label style="font-size: 25px; margin-left: 30px;">Travel :</label>
+                    <br>
+                    <div class="first">
+                        <h4 align="center">From</h4>
+                        <p>State*</p>
+                        <input class="form-control" type="text" name="from_state" required>
+                        <br>
+                        <p>District*</p>
+                        <input class="form-control" type="text" name="from_district" required>
+                        <br>
+                        <p>Flat No.*</p>
+                        <input class="form-control" type="text" name="from_flatno" required>
+                        <br>
+                        <p>Street Name*</p>
+                        <input class="form-control" type="text" name="from_street" required>
+                        <br>
+                        <p>Locality*</p>
+                        <input class="form-control" type="text" name="from_lacality" required>
+                        <br>
+                        <p>Pincode*</p>
+                        <input class="form-control" type="text" name="from_pincode" pattern="[0-9]{6}" required>
+                        <br>
+                    </div>
+                    <div class="second">
+                        <h4 align="center">To</h4>
+                        <p>State*</p>
+                        <input class="form-control" type="text" name="to_state" required>
+                        <br>
+                        <p>District*</p>
+                        <input class="form-control" type="text" name="to_district" required>
+                        <br>
+                        <p>Flat No.*</p>
+                        <input class="form-control" type="text" name="to_flatno" required>
+                        <br>
+                        <p>Street Name*</p>
+                        <input class="form-control" type="text" name="to_street" required>
+                        <br>
+                        <p>Locality*</p>
+                        <input class="form-control" type="text" name="to_lacality" required>
+                        <br>
+                        <p>Pincode*</p>
+                        <input class="form-control" type="text" name="to_pincode" pattern="[0-9]{6}"required>
+                        <br>
+                    </div>
+                </div>
+                <p>Document Proof (ex : Marriage Invitation)*</p>
+                <input style="margin-left: 90px; outline: none;  width: 300px;" type="file" class="form-control-file"  name="documentproof" aria-describedby="fileHelp" required>
+                <br>
+                <p>Additional Remarks(optional)</p>
+                <textarea class="form-control" id="exampleTextarea" rows="6" name="add_remarks"></textarea>
+                <br>
+                <div align="center">
+                    <input style="align-items: center; outline:none; " class="submit" type="submit" name="submit" value="submit" required>
+                </div>
+            </form>
+        </div>
+        <br>
+        <br>
+        <!--footer-->
+        <div id="footerform" align="center">
+            <footer class="page-footer font-small text-muted" style="font-size: 10px;">
+                <div class="footer-copyright text-center py-3">
+                    © 2020 Copyright:
+                    <a href="login"> Covid19 Epass portal</a>
+                    <br>
+                    Developed and Maintained by <a href="https://www.linkedin.com/in/kandhasamy-ramanathan-bb92801a2" target="_blank">Kandhasamy R</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div  ng-show="IsVisible2" [style.visibility]="hidden">
+        <div id="header"class="header navbar navbar-expand-md navbar-light"><div id="logo">
+            <a href="#" data-toggle="tooltip" title="Back" ng-click="ShowHide()" class="navbar-brand logo float-left" style=" outline: none; font-size: 25px; "><div style="background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"> covid19 ePass portal</div></a></div>
+            <button style="outline: none; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarId">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarId" align="center">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a style="outline: none;" id="active" ng-click="ShowHide1()"  href="#" class="nav-link">PREVIOUS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login"  style="outline: none;background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" class="nav-link" data-toggle="tooltip" title="Logout!"th:text="'Hello! '+${message}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="containerpre" width="80%" align="center" style="color: gray;">
+            <h3 align="center">PREVIOUS SUBMISSION</h3>
+            <br>
+            <table class="table table-bordered"  style="text-align: center; width:80%;">
+                <thead style="text-align: center; font-size: 22px; color: honeydew;">
+                <tr>
+                    <th>Reason</th>
+                    <th>Date</th>
+                    <th>Count</th>
+                    <th>ID Proof</th>
+                    <th>Travel On</th>
+                    <th>Travel Distance</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Result</th>
+                </tr>
+                </thead>
+                <tbody style="text-align: center; font-size: 18px; color: darkgray">
+                <tr th:each="m:${show}">
+                    <td th:text="${m?.reason}"></td>
+                    <td th:text="${m?.date}"></td>
+                    <td th:text="${m?.count}"></td>
+                    <td th:text="${m?.id_proof}"></td>
+                    <td th:text="${m?.travel_on}"></td>
+                    <td th:text="${m?.travel_distance} + ' Km' "></td>
+                    <td th:text="${m?.from_district}"></td>
+                    <td th:text="${m?.to_district}"></td>
+                    <td th:text="${m?.result}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <br>
+        <!--footer-->
+        <div id="footerform" align="center">
+            <footer class="page-footer font-small text-muted" style="font-size: 10px;">
+                <div class="footer-copyright text-center py-3">
+                    © 2020 Copyright:
+                    <a href="login"> Covid19 Epass portal</a>
+                    <br>
+                    Developed and Maintained by <a href="https://www.linkedin.com/in/kandhasamy-ramanathan-bb92801a2" target="_blank">Kandhasamy R</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

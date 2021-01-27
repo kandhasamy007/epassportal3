@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>covid19 ePass portal | Support</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script th:src="@{/JS/security.js}"></script>
+    <link rel="stylesheet" th:href="@{/CSS/supportcss.css}">
+</head>
+<!--body-->
+<body oncontextmenu="return false;">
+<!--Header-->
+</div>
+<div id="header"class="header navbar navbar-expand-md navbar-light"><div id="logo">
+
+    <a href="login"  class="navbar-brand logo float-left" style=" outline: none; font-size: 25px; text-shadow: 3px;"><div style="background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"> covid19 ePass portal</div></a></div>
+    <button style="outline: none; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarId">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarId"  align="center">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a  style="outline: none;background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" href="login" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a style="outline: none;background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" href="about" class=" nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a style="outline: none;" id="active" href="support" class="active nav-link">Support</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="img"  >
+    <img th:src="@{/image/profile.svg}" width="50%" >
+</div>
+<div class="container" align="center">
+    <br>
+    <img class="profileimg" th:src="@{/image/avatar.svg}">
+    <div class="card" style="width: 20rem; margin-top: 30px;" >
+        <div class="card-header font-weight-bold text-center" style="color: gray; font-size:25px;">
+            R.Kandhasamy  B.E.,
+        </div>
+        <div class="card-body" style="text-align: left; background: #f5f7ff;" >
+            <label>
+                Department : IV-yr / ECE <br>
+                College : KSRCT <br>
+                Contact : 9944246695 <br>
+                Email : kandhasamy6820@gmail.com
+            </label>
+        </div>
+        <div class="card-footer" >
+            Contact me..<br>
+            <a href="https://api.whatsapp.com/send?phone=+919944246695" target="_blank"><i class="fa fa-whatsapp" style="font-size:25px;color:green;"></i></a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/kandhasamy-ramanathan-bb92801a2" target="_blank"><i class="fa fa-linkedin" style="font-size:25px;color:darkcyan;"></i></a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://github.com/kandhasamy007" target="_blank"><i class="fa fa-github" style="font-size:25px;color:black;"></i></a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://twitter.com/KandhasamyR5" target="_blank"><i class="fa fa-twitter" style="font-size:25px; color:dodgerblue;"></i></a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://www.instagram.com/i_am_rk.7/" target="_blank"><i class="fa fa-instagram" style="font-size:25px; color:crimson;"></i></a>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div id="footer">
+    <footer class="page-footer font-small text-muted" style="font-size: 10px;">
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="login"> Covid19 Epass portal</a>
+            <br>
+            Developed and Maintained by <a href="https://www.linkedin.com/in/kandhasamy-ramanathan-bb92801a2" target="_blank">Kandhasamy R</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

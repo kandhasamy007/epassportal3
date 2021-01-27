@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>covid19 ePass portal | admin login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script th:src="@{/JS/security.js}"></script>
+    <link rel="stylesheet" th:href="@{/CSS/adminlogin.css}">
+</head>
+<!--body-->
+<body oncontextmenu="return false;">
+<!--popup-->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color: #f79580;">
+                <h4 class="modal-title">STAY HOME. SAVE LIVES</h4>
+                <button style="outline: none;" type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body" style="background-color: #DAF7A6 ">
+                <img th:src="@{/image/madelimage.jpg}" class="modal-content" height="450px">
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer" style="background-color:  #DAF7A6; height: 60px;">
+                <button style="outline: none;" type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Header-->
+<div id="header"class="header navbar navbar-expand-md navbar-light"><div id="logo">
+    <a href="/adminlogin"  class="navbar-brand logo float-left" style=" outline: none; font-size: 25px; text-shadow: 3px;"><div style="background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"> covid19 ePass portal | Admin</div></a></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarId">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarId" align="center">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a style="outline: none;" id="active" href="adminlogin" class="active nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a style="outline: none; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" href="about" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="support" style="outline: none; background-image:  linear-gradient(90deg,#755bea,#ff72c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" class="nav-link">Support</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="img" >
+    <img th:src="@{/image/login_image.svg}" width="42%" >
+</div>
+<div class="container" align="center">
+    <div id="wrong" th:if="${param.error}" >
+        <h5 style="color:red; margin-top: -15px;">Invalid Username or Password</h5>
+    </div>
+    <img th:src="@{/image/avatar.svg}" width="100px" >
+    <br>
+    <br>
+    <div class="form" align="center" >
+        <form th:action="@{/adminlogin}" method="post">
+        <!--email div-->
+        <h3 style="font-family: serif; color: gray;">Enter Your Username</h3>
+        <input class="forminput" type="text" name="username" required>
+            <br><br>
+        <h3 style="font-family: serif; color: gray;">Enter Your Password</h3>
+        <input class="forminput" type="password" name="password" required="">
+        <br>
+            <br>
+        <input class="submit" type="submit" name="submit" value="submit">
+
+    </form>
+    </div>
+</div>
+<!--footer-->
+<div id="footer">
+    <footer class="page-footer font-small text-muted" style="font-size: 10px;">
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="/adminlogin"> Covid19 Epass portal</a>
+            <br>
+            Developed and Maintained by <a href="https://www.linkedin.com/in/kandhasamy-ramanathan-bb92801a2" target="_blank">Kandhasamy R</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
